@@ -16,6 +16,11 @@ func Start() {
 	shuffle := flag.Bool("shuffle", false, "Перемешать вопросы")
 	flag.Parse()
 
+	if !strings.Contains(*fileName, ".csv") {
+		fmt.Println("Файл должен иметь расширение .csv")
+		return
+	}
+
 	file, err := os.Open(*fileName)
 	if err != nil {
 		fmt.Println("Ошибка открытия файла:", err)
