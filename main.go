@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "github.com/Yorherim/inno-tasks/homeworks/hw1"
 
 func main() {
-	fmt.Println("hello")
+	hw1.Hw1Init()
 }
