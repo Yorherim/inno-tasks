@@ -1,8 +1,7 @@
-# Инструкция по запуску программ:
+# Инструкция по запуску программы:
 
-## ДЗ 1:
-### Задача 1:
-в `main.go` файле должна быть задействована строка `task1.Start()` из пакета `github.com/Yorherim/inno-tasks/homeworks/hw1/task1`  
+в `main.go` файле должна быть задействована строка `task1.Task1()` из пакета
+`github.com/Yorherim/inno-tasks/homeworks/hw1/task1`  
 Запуск приложения:
 - без флагов
 ```

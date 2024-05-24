@@ -1,4 +1,4 @@
-package task1
+package main
 
 import (
 	"bufio"
@@ -11,7 +11,7 @@ import (
 	"time"
 )
 
-func Start() {
+func main() {
 	fileName := flag.String("file", "problems.csv", "CSV файл с вопросами и ответами")
 	shuffle := flag.Bool("shuffle", false, "Перемешать вопросы")
 	flag.Parse()
