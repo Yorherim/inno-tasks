@@ -1,7 +1,7 @@
 package main
 
-import "github.com/Yorherim/inno-tasks/homeworks/hw1"
+import "github.com/Yorherim/inno-tasks/homeworks/hw1/task1"
 
 func main() {
-	hw1.Hw1Init()
+	task1.Start()
 }
