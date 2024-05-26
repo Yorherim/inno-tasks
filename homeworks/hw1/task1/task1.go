@@ -40,6 +40,11 @@ func main() {
 		records = append(records, record)
 	}
 
+	if len(records) == 0 {
+		fmt.Println("̆В файле нет записей")
+		return
+	}
+
 	if *shuffle {
 		source := rand.NewSource(time.Now().UnixNano())
 		r := rand.New(source)
