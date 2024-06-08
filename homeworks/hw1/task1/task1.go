@@ -16,11 +16,11 @@ import (
 
 const (
 	countColumns = 2
-	bufSize      = 1024
+	batchSize    = 1024
 )
 
-func batchReadRecords(reader *csv.Reader, records [][]string, bufSize int) ([][]string, error) {
-	for i := 0; i < bufSize; i++ {
+func batchReadRecords(reader *csv.Reader, records [][]string, batchSize int) ([][]string, error) {
+	for i := 0; i < batchSize; i++ {
 		record, err := reader.Read()
 		if err != nil {
 			return records, err
@@ -55,14 +55,14 @@ func main() {
 	}()
 
 	reader := csv.NewReader(file)
-	records := make([][]string, 0, bufSize)
+	records := make([][]string, 0)
 	readerStdin := bufio.NewReader(os.Stdin)
 
 	correctAnswers, incorrectAnswers := 0, 0
 	showStrStartQuestions := false
 
 	for {
-		records, errReadRecords := batchReadRecords(reader, records, bufSize)
+		records, errReadRecords := batchReadRecords(reader, records, batchSize)
 		if errReadRecords != nil && errReadRecords != io.EOF {
 			log.Fatalf("Ошибка считывания записей файла: %s", errReadRecords)
 		}
