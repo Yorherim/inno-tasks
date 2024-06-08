@@ -1,9 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"github.com/spf13/cobra"
-	"os"
+	"log"
 )
 
 func main() {
@@ -12,7 +11,6 @@ func main() {
 	rootCmd.CompletionOptions.DisableDefaultCmd = true
 
 	if err := rootCmd.Execute(); err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		log.Fatalf("Не удалось выполнить команду: %s", err)
 	}
 }
