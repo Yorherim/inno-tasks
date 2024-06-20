@@ -14,7 +14,7 @@ type PlainText struct {
 	Text string
 }
 
-func (p *PlainText) Format() string {
+func (p PlainText) Format() string {
 	return p.Text
 }
 
@@ -23,7 +23,7 @@ type BoldText struct {
 	Text string
 }
 
-func (b *BoldText) Format() string {
+func (b BoldText) Format() string {
 	return "**" + b.Text + "**"
 }
 
@@ -32,7 +32,7 @@ type CodeText struct {
 	Text string
 }
 
-func (c *CodeText) Format() string {
+func (c CodeText) Format() string {
 	return "`" + c.Text + "`"
 }
 
@@ -41,7 +41,7 @@ type ItalicText struct {
 	Text string
 }
 
-func (i *ItalicText) Format() string {
+func (i ItalicText) Format() string {
 	return "_" + i.Text + "_"
 }
 
@@ -82,10 +82,10 @@ func main() {
 	italic := ItalicText{"Пример текста курсивом"}
 
 	chainFormatter := ChainFormatter{}
-	chainFormatter.AddFormatter(&plain)
-	chainFormatter.AddFormatter(&bold)
-	chainFormatter.AddFormatter(&code)
-	chainFormatter.AddFormatter(&italic)
+	chainFormatter.AddFormatter(plain)
+	chainFormatter.AddFormatter(bold)
+	chainFormatter.AddFormatter(code)
+	chainFormatter.AddFormatter(italic)
 
 	fmt.Println(chainFormatter.FormatChain())
 	fmt.Println(chainFormatter.FormatChainln())
