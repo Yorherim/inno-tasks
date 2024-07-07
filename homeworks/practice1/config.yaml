@@ -1,0 +1,10 @@
+worker_interval_seconds: 1
+
+write_messages_interval_milliseconds: 100
+
+num_users: 100
+num_messages: 100
+
+retries_write_to_files_count: 3
+retries_write_to_files_interval_milliseconds: 1000
+
