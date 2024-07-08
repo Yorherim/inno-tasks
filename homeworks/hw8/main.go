@@ -3,6 +3,11 @@ package main
 import (
 	"fmt"
 	"os"
+	"time"
+)
+
+const (
+	dateFormat = "2006-01-02 15:04:05"
 )
 
 type OptimizeLogger struct {
@@ -14,10 +19,9 @@ func NewOptimizeLogger() OptimizeLogger {
 
 // Info на данный метод работает только со string
 func (l OptimizeLogger) Info(v string) {
-	var data []byte
-	data = append([]byte(v), '\n')
+	date := time.Now().Format(dateFormat) + " "
 
-	if _, err := os.Stdout.Write(data); err != nil {
+	if _, err := os.Stdout.Write([]byte(date + v + "\n")); err != nil {
 		return
 	}
 }
@@ -30,7 +34,8 @@ func NewNoOptimizeLogger() *NoOptimizeLogger {
 }
 
 func (l *NoOptimizeLogger) Info(args ...any) {
-	fmt.Println(args...)
+	date := time.Now().Format(dateFormat) + " "
+	fmt.Printf("%s%s\n", date, fmt.Sprint(args...))
 }
 
 // go build -gcflags "-m=1" main.go
